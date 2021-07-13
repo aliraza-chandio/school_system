@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-//use App\Http\Controllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,10 +16,12 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+  
+Route::resource('teachers', 'TeacherController');
 
 Route::get('/','HomeController@index');
 Route::get('/dashboard','HomeController@dashboard');
-Route::get('/dashboard2','Home1Controller@dashboard2');
+Route::get('/dashboard2','HomeController@dashboard2');
 
 
 

@@ -20,6 +20,6 @@ class HomeController extends Controller
     }
     public function dashboard2()
     {
-        return view('dashboard2');
+        return view('aliraza.test.test.dashboard2');
     }
 }

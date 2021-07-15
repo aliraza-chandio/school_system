@@ -38,19 +38,25 @@ class TeacherController extends Controller
     }
     public function show(Teacher $teacher)
     {
-        return view('teachers.show',compact('teacher'));
+        $pageTitle = 'Show Teacher Data';
+        $teacher = Teacher::join('class', 'class.id', '=', 'teachers.class_id')->where('teachers.id',$teacher->id)
+                      ->first(['teachers.name','teachers.email','teachers.phone_no','class.title']);
+        return view('teachers.show',compact('teacher', 'pageTitle'));
     } 
     public function edit(Teacher $teacher)
-    {
-        return view('teachers.edit',compact('teacher'));
+    { 
+        $pageTitle = 'Edit Teacher Data';
+        $teacher = Teacher::find($teacher->id);
+        return view('teachers.edit',compact('teacher', 'pageTitle'));
     }
     public function update(Request $request, Teacher $teacher)
     {
         $request->validate([
             'name' => 'required',
-            'detail' => 'required',
+            'email' => 'required',
+            'phone_no' => 'required',
+            'class_id' => 'required',
         ]);
-    
         $teacher->update($request->all());
     
         return redirect()->route('teachers.index')

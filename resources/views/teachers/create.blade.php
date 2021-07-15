@@ -1,5 +1,8 @@
 @extends('layouts.app')
-  
+@section('page-title')
+Create Teacher
+@endsection
+
 @section('main-content')
 
 <div class="right_col" role="main">

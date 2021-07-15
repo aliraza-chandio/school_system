@@ -91,14 +91,14 @@ Teachers
                                       <td>
                                           <form action="{{ route('teachers.destroy',$teacher->id) }}" method="POST">
                                       
-                                              <a class="btn btn-info" href="{{ route('teachers.show',$teacher->id) }}">Show</a>
+                                              <a class="btn btn-info" href="/teachers/{{ $teacher->id }}">Show</a>
                                       
-                                              <a class="btn btn-primary" href="{{ route('teachers.edit',$teacher->id) }}">Edit</a>
+                                              <a class="btn btn-primary"   href="{{ route('teachers.edit',$teacher->id) }}" >Edit</a>
                                       
                                               @csrf
                                               @method('DELETE')
                                       
-                                              <button type="submit" class="btn btn-danger">Delete</button>
+                                              <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure do you wan\'t to delete the category?')">Delete</button>
                                           </form>
                                       </td>
                                    </tr>

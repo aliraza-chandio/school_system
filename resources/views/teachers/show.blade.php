@@ -1,29 +1,51 @@
 @extends('layouts.app')
-  
+@section('page-title')
+{{ $pageTitle }}
+@endsection
+
 @section('main-content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2> Show Teacher</h2>
+
+<div class="right_col" role="main">
+   <div class="">
+      <div class="page-title">
+         <div class="title_left">
+            <h3>Create Teachers</h3>
+         </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="row">
+         <div class="col-md-12 ">
+            <div class="x_panel">
+               <div class="x_content">
+                     <div class="form-group row ">
+                        <label class="control-label col-md-3 col-sm-3 ">Name</label>
+                        <div class="col-md-9 col-sm-9 ">
+                           <p>{{ $teacher->name }}</p>
+                        </div>
+                     </div>
+                     <div class="form-group row ">
+                        <label class="control-label col-md-3 col-sm-3 ">Email</label>
+                        <div class="col-md-9 col-sm-9 ">
+                           <p>{{ $teacher->email }}</p>
+                        </div>
+                     </div>
+                     <div class="form-group row ">
+                        <label class="control-label col-md-3 col-sm-3 ">Phone no</label>
+                        <div class="col-md-9 col-sm-9 ">
+                           <p>{{ $teacher->phone_no }}</p>
+                        </div>
+                     </div>
+                     <div class="form-group row">
+                        <label class="control-label col-md-3 col-sm-3 ">Class</label>
+                        <div class="col-md-9 col-sm-9 ">
+                           <p>{{ $teacher->title }}</p>
+                        </div>
+                     </div>
+                     <div class="ln_solid"></div>
+               </div>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('teachers.index') }}"> Back</a>
-            </div>
-        </div>
-    </div>
-   
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Name:</strong>
-                {{ $teacher->name }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Details:</strong>
-                {{ $teacher->detail }}
-            </div>
-        </div>
-    </div>
+         </div>
+      </div>
+   </div>
+</div>
 @endsection

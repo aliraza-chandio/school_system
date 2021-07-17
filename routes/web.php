@@ -23,7 +23,11 @@ Route::get('/','HomeController@index');
 Route::get('/dashboard','HomeController@dashboard');
 Route::get('/dashboard2','HomeController@dashboard2');
 
-
+// for Classes
+Route::get('/classes','ClassController@index');
+Route::get('/class/create','ClassController@create');
+Route::post('/class/store','ClassController@store');
+Route::get('/class/{class_id}','ClassController@show');
 
 // Route::get('/faq-list',  ['as' => 'faq','uses' => 'FaqController@index']);
 

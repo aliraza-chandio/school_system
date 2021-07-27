@@ -33,8 +33,8 @@ Classes
                         </tr>
                      </thead>
                      <tbody>
-                        @php 
-                           $count = 1; 
+                        @php
+                           $count = 1;
                         @endphp
                      	@foreach($classes as $class)
 	                        <tr>
@@ -49,17 +49,17 @@ Classes
 	                           </td>
 	                           <td>
 	                                   <a class="btn btn-info" href="/class/{{ $class->id }}">Show</a>
-	                           
+
 	                                   <a class="btn btn-primary"   href="/class/{{ $class->id }}/edit" >Edit</a>
-	                           
+
 	                                 <form class="form-inline" action="/class/{{ $class->id }}/delete" method="POST">
                                     @csrf
 	                                   <button type="submit" class="btn btn-danger mb-2" onclick="return confirm('Are you sure do you wan\'t to delete the category?')">Delete</button>
                                     </form>
 	                           </td>
 	                        </tr>
-	                        @php 
-	                        	$count = $count+1; 
+	                        @php
+	                        	$count = $count+1;
 	                        @endphp
                         @endforeach
                      </tbody>

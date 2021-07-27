@@ -25,7 +25,7 @@
                            </div>
                            <div class="count">{{ $teachersCount }}</div>
                            <h3>All Teachers</h3>
-                           
+
                         </div>
                      </div>
                      <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
@@ -34,7 +34,7 @@
                            </div>
                            <div class="count">{{ $classesCount }}</div>
                            <h3>All Classes</h3>
-                           
+
                         </div>
                      </div>
                      <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
@@ -43,7 +43,7 @@
                            </div>
                            <div class="count">{{ $classesActive }}</div>
                            <h3>Active Classes </h3>
-                           
+
                         </div>
                      </div>
                      <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
@@ -52,7 +52,7 @@
                            </div>
                            <div class="count">{{ $classesDeactive }}</div>
                            <h3>Deactive Classes </h3>
-                           
+
                         </div>
                      </div>
                   </div>

@@ -35,9 +35,38 @@ class ClassController extends Controller
     }
     public function show($class_id)
     {
-    	$class = Classes::find($class_id);
-    	$pageTitle = 'Show Class';
-    	return view('classes.show',compact('class','pageTitle'));
+        $class = Classes::find($class_id);
+        $pageTitle = 'Show Class';
+        return view('classes.show',compact('class','pageTitle'));
 
+    }
+
+    public function edit($class_id)
+    {
+        $class = Classes::find($class_id);
+        $pageTitle = 'Edit Class1';
+        return view('classes.edit',compact('class','pageTitle'));
+
+    }
+    public function editStore(Request $request)
+    {
+        $data = $request->all();
+        $id = $data['class_id'];
+        $title = $data['title'];
+        $status = $data['status'];
+
+        $class = Classes::find($id);
+        $class->title = $title;
+        $class->status = $status;
+        $class->update();
+        return redirect('/classes');
+    }
+
+    public function delete($class_id)
+    {
+        // var_dump($class_id); exit;
+        $class = Classes::find($class_id);
+        $class->delete();
+        return redirect('/classes');
     }
 }

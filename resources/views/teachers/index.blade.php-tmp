@@ -1,5 +1,5 @@
 @extends('layouts.app')
- 
+
 @section('page-title')
 Teachers
 @endsection
@@ -10,7 +10,7 @@ Teachers
 //for laravel 8
 // use App\Classes;
 @endphp
-      
+
        <div class="right_col" role="main">
           <div class="">
              <div class="page-title">
@@ -54,14 +54,14 @@ Teachers
                                       {{-- <td>{{ $class->title }}</td> --}}
                                       <td>
                                           <form action="{{ route('teachers.destroy',$teacher->id) }}" method="POST">
-                                      
+
                                               <a class="btn btn-info" href="/teachers/{{ $teacher->id }}">Show</a>
-                                      
+
                                               <a class="btn btn-primary"   href="{{ route('teachers.edit',$teacher->id) }}" >Edit</a>
-                                      
+
                                               @csrf
                                               @method('DELETE')
-                                      
+
                                               <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure do you wan\'t to delete the category?')">Delete</button>
                                           </form>
                                       </td>
@@ -75,5 +75,5 @@ Teachers
                 </div>
              </div>
           </div>
-       </div>       
+       </div>
 @endsection

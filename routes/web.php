@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
   
 Route::resource('teachers', 'TeacherController');
+Route::resource('students', 'StudentController');
 
 Route::get('/','HomeController@index');
 Route::get('/dashboard','HomeController@dashboard');
@@ -39,5 +40,18 @@ Route::get('/class/{class_id}/edit','ClassController@edit');
 Route::post('/class/edit/store','ClassController@editStore');
 Route::post('/class/{class_id}/delete','ClassController@delete');
 // Route::get('/faq-list',  ['as' => 'faq','uses' => 'FaqController@index']);
+
+
+
+
+
+Route::post('get-cities-by-country','StudentController@getCity');
+
+
+
+
+
+
+
 
 Auth::routes();

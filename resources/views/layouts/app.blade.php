@@ -226,5 +226,28 @@
       <script src="/assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
       <!-- Custom Theme Scripts -->
       <script src="/assets/build/js/custom.min.js"></script>
+
+      <script>
+         
+         $('#country').on('change', function() {
+             var countryId = this.value;
+             $("#city").html('');
+             $.ajax({
+                 url: "/get-cities-by-country",
+                 type: "POST",
+                 data: {
+                     country : countryId,
+                     _token: '{{ csrf_token() }}'
+                 },
+                 dataType: 'json',
+                 success: function(result) {
+                   // console.log(result);
+                     // $.each(result, function(key, value) {
+                     //     $("#city").append('<option value="' + value.id + '">' + value.name + '</option>');
+                     // });
+                 }
+             });
+         });
+      </script>
    </body>
 </html>            

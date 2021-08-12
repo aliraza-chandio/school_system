@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('page-title')
-Create Teacher
+Profile
 @endsection
 
 @section('main-content')
@@ -9,7 +9,7 @@ Create Teacher
    <div class="">
       <div class="page-title">
          <div class="title_left">
-            <h3>Create Teachers</h3>
+            <h3>Profile</h3>
          </div>
       </div>
       <div class="clearfix"></div>
@@ -28,48 +28,41 @@ Create Teacher
                       </div>
                   @endif
                   <br />
-                  <form class="form-horizontal form-label-left" action="{{ route('teachers.store') }}" method="POST">
+                  <form class="form-horizontal form-label-left" action="/profile/store" method="POST" enctype="multipart/form-data">
                     @csrf
                      <div class="form-group row ">
                         <label class="control-label col-md-3 col-sm-3 ">Name</label>
                         <div class="col-md-9 col-sm-9 ">
-                           <input type="text" class="form-control" name="name" placeholder="Name">
+                           <input type="text" class="form-control" name="name" value="{{ Auth::user()->name }}" placeholder="Name">
                         </div>
                      </div>
                      <div class="form-group row ">
                         <label class="control-label col-md-3 col-sm-3 ">Email</label>
                         <div class="col-md-9 col-sm-9 ">
-                           <input type="email" class="form-control" name="email" placeholder="Email">
+                           <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}" placeholder="Email">
                         </div>
                      </div>
                      <div class="form-group row ">
                         <label class="control-label col-md-3 col-sm-3 ">Phone no</label>
                         <div class="col-md-9 col-sm-9 ">
-                           <input type="number" class="form-control" name="phone_no" placeholder="Phone no">
+                           <input type="number" class="form-control" name="phone_no" value="{{ Auth::user()->phone_no }}" placeholder="Phone no">
                         </div>
                      </div>
-                     <div class="form-group row">
-                        <label class="control-label col-md-3 col-sm-3 ">Password</label>
+                     <div class="form-group row ">
+                        <label class="control-label col-md-3 col-sm-3 ">Address</label>
                         <div class="col-md-9 col-sm-9 ">
-                           <input type="password" class="form-control" value="" name="password" placeholder="Password">
+                           <input type="number" class="form-control" name="address" value="{{ Auth::user()->address }}" placeholder="Address">
                         </div>
                      </div>
-                     <div class="form-group row">
-                        <label class="control-label col-md-3 col-sm-3 ">Classes</label>
+                     <div class="form-group row ">
+                        <label class="control-label col-md-3 col-sm-3 ">User Profile</label>
                         <div class="col-md-9 col-sm-9 ">
-                           <select class="form-control" name="class_id">
-                              <option>Choose option</option>
-                              @foreach($classes as $class)
-                                 <option value="{{ $class->id }}">{{ $class->title }}</option>
-                              @endforeach
-                           </select>
+                           <input type="file" class="form-control" name="user_profile">
                         </div>
                      </div>
                      <div class="ln_solid"></div>
                      <div class="form-group">
                         <div class="col-md-9 col-sm-9  offset-md-3">
-                           <a href="{{ route('teachers.index') }}" class="btn btn-primary">Cancel</a>
-                           <button type="reset" class="btn btn-danger">Reset</button>
                            <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                      </div>

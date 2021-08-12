@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Teacher;
+use App\Classes;
+
 use Illuminate\Http\Request;
    
   
@@ -25,7 +27,8 @@ class TeacherController extends Controller
     }
     public function create()
     {
-        return view('teachers.create');
+        $classes = Classes::where('status','Active')->get();
+        return view('teachers.create',compact('classes'));
     }
     public function store(Request $request)
     {

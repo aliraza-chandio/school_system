@@ -45,8 +45,17 @@ Route::post('/class/{class_id}/delete','ClassController@delete');
 
 
 
-Route::post('get-cities-by-country','StudentController@getCity');
+// Route::post('get-cities-by-country','StudentController@getCity');
 
+
+Route::get('profile','HomeController@profile');
+Route::post('/profile/store','HomeController@profileStore');
+Route::get('change-password','HomeController@changePassword');
+Route::post('/change-password/store','HomeController@changePasswordStore');
+
+
+Route::get('country','AjaxController@getCountries');
+Route::post('get-cities-by-country','AjaxController@getCity');
 
 
 

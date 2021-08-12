@@ -37,7 +37,7 @@
                   <!-- menu profile quick info -->
                   <div class="profile clearfix">
                      <div class="profile_pic">
-                        <img src="/assets/images/{{ Auth::user()->user_profile }}" alt="..." class="img-circle profile_img">
+                        <img src="/uploads/profiles/{{ Auth::user()->user_profile }}" alt="..." class="img-circle profile_img">
                      </div>
                      <div class="profile_info">
                         <span>Welcome,</span>
@@ -90,15 +90,11 @@
                      <ul class=" navbar-right">
                         <li class="nav-item dropdown open" style="padding-left: 15px;">
                            <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                           <img src="/assets/images/{{ Auth::user()->user_profile }}" alt="">{{ Auth::user()->name }}
+                           <img src="/uploads/profiles/{{ Auth::user()->user_profile }}" alt="">{{ Auth::user()->name }}
                            </a>
                            <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item"  href="javascript:;"> Profile</a>
-                              <a class="dropdown-item"  href="javascript:;">
-                              <span class="badge bg-red pull-right">50%</span>
-                              <span>Settings</span>
-                              </a>
-                              <a class="dropdown-item"  href="javascript:;">Help</a>
+                              <a class="dropdown-item"  href="/profile"> Profile</a>
+                              <a class="dropdown-item"  href="/change-password">Change Password</a>
                               <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" ><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                               <form action="{{ route('logout') }}" id="logout-form" method="POST">
                                  @csrf
@@ -229,25 +225,25 @@
 
       <script>
          
-         $('#country').on('change', function() {
-             var countryId = this.value;
-             $("#city").html('');
-             $.ajax({
-                 url: "/get-cities-by-country",
-                 type: "POST",
-                 data: {
-                     country : countryId,
-                     _token: '{{ csrf_token() }}'
-                 },
-                 dataType: 'json',
-                 success: function(result) {
-                   // console.log(result);
-                     // $.each(result, function(key, value) {
-                     //     $("#city").append('<option value="' + value.id + '">' + value.name + '</option>');
-                     // });
-                 }
-             });
-         });
+         // $('#country').on('change', function() {
+         //     var countryId = this.value;
+         //     $("#city").html('');
+         //     $.ajax({
+         //         url: "/get-cities-by-country",
+         //         type: "POST",
+         //         data: {
+         //             country : countryId,
+         //             _token: '{{ csrf_token() }}'
+         //         },
+         //         dataType: 'json',
+         //         success: function(result) {
+         //           // console.log(result);
+         //             // $.each(result, function(key, value) {
+         //             //     $("#city").append('<option value="' + value.id + '">' + value.name + '</option>');
+         //             // });
+         //         }
+         //     });
+         // });
       </script>
    </body>
 </html>            

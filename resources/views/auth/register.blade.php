@@ -20,6 +20,7 @@
 
     <!-- Custom Theme Style -->
     <link href="/assets/build/css/custom.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
 
   <body class="login">
@@ -43,6 +44,19 @@
               <div>
                 <input type="password" name="password" class="form-control" placeholder="Password" required="" />
               </div>
+             <div class="form-group">
+                 <select class="form-control" name="country_id" id="country_id" >
+                    <option>Select Country</option>
+                    @foreach($countries as $country)
+                      <option value="{{ $country->id }}">{{ $country->name }}</option>
+                    @endforeach
+                 </select>
+             </div>
+             <div class="form-group">
+                 <select class="form-control" name="city_id" id="city_id" >
+                    <option>Select City</option>
+                 </select>
+             </div>
               <div>
                 <input type="submit" class="btn btn-default submit">
               </div>
@@ -67,5 +81,29 @@
         </div>
       </div>
     </div>
+    <script>
+      $(document).ready(function() {
+          $('#country_id').on('change', function() {
+              var country_id = this.value;
+              $("#city_id").html('');
+              $.ajax({
+                  url: "/get-cities-by-country",
+                  type: "POST",
+                  data: {
+                      country_id: country_id,
+                      _token: '{{csrf_token()}}'
+                  },
+                  dataType: 'json',
+                  success: function(result) {
+                      city_data = '<option value="">Select City</option>';
+                      $.each(result, function(key,value) {
+                        city_data += '<option value="'+value.id+'">'+value.name+'</option>';
+                      });
+                      $('#city_id').html(city_data);
+                  }
+              });
+          });
+      });
+    </script>
   </body>
 </html>

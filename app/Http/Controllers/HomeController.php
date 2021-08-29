@@ -50,14 +50,19 @@ class HomeController extends Controller
             'address' => 'required',
             'user_profile' => 'required|mimes:jpg,png,jpeg|max:2048',
         ]);
-  
+        
         $fileName = time().'.'.$request->user_profile->extension();
         $request->user_profile->move(public_path('/uploads/profiles'), $fileName);
 
         $user = User::find(Auth::user()->id);
 
             if(file_exists(public_path('/uploads/profiles/'.$user->user_profile))){
-                unlink(public_path('/uploads/profiles/'.$user->user_profile));
+                if ($user->user_profile == 'default.png') {
+                }
+                else
+                {
+                    unlink(public_path('/uploads/profiles/'.$user->user_profile));
+                }
             }
         $user->name = $request->name;
         $user->email = $request->email;

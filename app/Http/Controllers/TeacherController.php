@@ -19,7 +19,7 @@ class TeacherController extends Controller
         // $teachers = Teacher::latest()->paginate(2);
 
         $teachers = Teacher::join('class', 'teachers.class_id', '=', 'class.id')
-                       ->get(['teachers.id', 'teachers.name', 'teachers.email', 'teachers.phone_no', 'class.title']);
+                       ->paginate(1,['teachers.id', 'teachers.name', 'teachers.email', 'teachers.phone_no', 'class.title']);
 
         // $teachers = Teacher::join('teachers', 'class.id', '=', 'teachers.class_id')->get(['teachers.*', 'class.title']);
         return view('teachers.index',compact('teachers'))

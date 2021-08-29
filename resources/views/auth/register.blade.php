@@ -45,6 +45,13 @@
                 <input type="password" name="password" class="form-control" placeholder="Password" required="" />
               </div>
              <div class="form-group">
+                 <select class="form-control" name="role_id" id="role_id" >
+                    <option>Select Role</option>
+                      <option value="1">Teacher</option>
+                      <option value="2">Student</option>
+                 </select>
+             </div>
+             <div class="form-group">
                  <select class="form-control" name="country_id" id="country_id" >
                     <option>Select Country</option>
                     @foreach($countries as $country)
@@ -96,7 +103,7 @@
                   dataType: 'json',
                   success: function(result) {
                       city_data = '<option value="">Select City</option>';
-                      $.each(result, function(key,value) {
+                      $.each(result.cities, function(key,value) {
                         city_data += '<option value="'+value.id+'">'+value.name+'</option>';
                       });
                       $('#city_id').html(city_data);

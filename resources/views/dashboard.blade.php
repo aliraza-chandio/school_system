@@ -19,24 +19,29 @@
             <div class="">
                <div class="x_content">
                   <div class="row">
-                     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
-                        <div class="tile-stats">
-                           <div class="icon"><i class="fa fa-caret-square-o-right"></i>
+                     @if(Auth::user()->hasRole('Admin'))
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
+                           <div class="tile-stats">
+                              <div class="icon"><i class="fa fa-caret-square-o-right"></i>
+                              </div>
+                              <div class="count">{{ $teachersCount }}</div>
+                              <h3>All Teachers</h3>
+                              
                            </div>
-                           <div class="count">{{ $teachersCount }}</div>
-                           <h3>All Teachers</h3>
-                           
                         </div>
-                     </div>
-                     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
-                        <div class="tile-stats">
-                           <div class="icon"><i class="fa fa-comments-o"></i>
+                     @endif
+                     @if(Auth::user()->hasRole('admin') || Auth::user()->hasRole('teacher') )
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
+                           <div class="tile-stats">
+                              <div class="icon"><i class="fa fa-comments-o"></i>
+                              </div>
+                              <div class="count">{{ $classesCount }}</div>
+                              <h3>All Classes</h3>
+                              
                            </div>
-                           <div class="count">{{ $classesCount }}</div>
-                           <h3>All Classes</h3>
-                           
                         </div>
-                     </div>
+                     @endif
+
                      <div class="animated flipInY col-lg-3 col-md-3 col-sm-6  ">
                         <div class="tile-stats">
                            <div class="icon"><i class="fa fa-sort-amount-desc"></i>

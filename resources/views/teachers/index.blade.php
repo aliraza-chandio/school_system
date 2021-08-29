@@ -10,7 +10,6 @@ Teachers
 //for laravel 8
 // use App\Classes;
 @endphp
-      
        <div class="right_col" role="main">
           <div class="">
              <div class="page-title">
@@ -18,7 +17,7 @@ Teachers
                    <h3>Teachers </h3>
                 </div>
                 <div class="title_right">
-                   <div class="col-md-3 col-sm-3   form-group pull-right top_search">
+                   <div class="col-md-3 col-sm-3 form-group pull-right top_search">
                       <a class="btn btn-success" href="{{ route('teachers.create') }}"> Create New Teacher</a>
                    </div>
                 </div>
@@ -46,12 +45,7 @@ Teachers
                                       <td>{{ $teacher->name }}</td>
                                       <td>{{ $teacher->email }}</td>
                                       <td>{{ $teacher->phone_no }}</td>
-                                      @php
-                                      // $class = Classes::find($teacher->class_id);
-
-                                      @endphp
                                       <td>{{ $teacher->title }}</td>
-                                      {{-- <td>{{ $class->title }}</td> --}}
                                       <td>
                                           <form action="{{ route('teachers.destroy',$teacher->id) }}" method="POST">
                                       
@@ -71,7 +65,7 @@ Teachers
                          </table>
                       </div>
                    </div>
-              {{-- {!! $teachers->links() !!} --}}
+              {!! $teachers->links() !!}
                 </div>
              </div>
           </div>
